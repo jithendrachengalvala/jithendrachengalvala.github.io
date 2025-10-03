@@ -1,4 +1,91 @@
-// Modern Portfolio JavaScript - Clean & Essential
+// Collapsible Experience Timeline
+document.addEventListener('DOMContentLoaded', function() {
+    const timelineItems = document.querySelectorAll('.timeline-content');
+    const expandBtns = document.querySelectorAll('.expand-btn');
+
+    // Handle expand/collapse button clicks
+    expandBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent triggering other click events
+
+            const timelineContent = this.closest('.timeline-content');
+            const isCurrentlyExpanded = !timelineContent.classList.contains('collapsed');
+
+            // Collapse all other items first
+            timelineItems.forEach(item => {
+                if (item !== timelineContent) {
+                    item.classList.add('collapsed');
+                }
+            });
+
+            // Toggle the current item
+            if (isCurrentlyExpanded) {
+                timelineContent.classList.add('collapsed');
+            } else {
+                timelineContent.classList.remove('collapsed');
+            }
+        });
+    });
+
+    // Optional: Click on header to toggle (in addition to button)
+    timelineItems.forEach(item => {
+        const header = item.querySelector('.timeline-header');
+        if (header) {
+            header.addEventListener('click', function(e) {
+                // Don't trigger if clicking on the button itself
+                if (!e.target.classList.contains('expand-btn') && !e.target.closest('.expand-btn')) {
+                    const btn = this.querySelector('.expand-btn');
+                    if (btn) {
+                        btn.click(); // Trigger the button click
+                    }
+                }
+            });
+        }
+    });
+
+    // Close expanded items when clicking outside
+    document.addEventListener('click', function(e) {
+        const isClickInsideTimeline = e.target.closest('.timeline-content');
+        if (!isClickInsideTimeline) {
+            timelineItems.forEach(item => {
+                item.classList.add('collapsed');
+            });
+        }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        // Ensure proper collapsed state on resize
+        if (window.innerWidth <= 768) {
+            // On mobile, you might want different behavior
+            // For now, just ensure consistency
+            timelineItems.forEach(item => {
+                if (item.classList.contains('collapsed')) {
+                    item.classList.add('collapsed');
+                }
+            });
+        }
+    });
+
+    // Prevent body scroll when hovering over expanded content on mobile
+    timelineItems.forEach(item => {
+        const details = item.querySelector('.timeline-details');
+
+        if (details) {
+            details.addEventListener('touchstart', function(e) {
+                // Allow native scrolling within the details container
+                e.stopPropagation();
+            });
+
+            details.addEventListener('touchmove', function(e) {
+                // Prevent page scroll when scrolling within details
+                if (this.scrollHeight > this.clientHeight) {
+                    e.stopPropagation();
+                }
+            });
+        }
+    });
+});
 
 // Mobile menu toggle
 const hamburger = document.querySelector('.hamburger');

@@ -52,26 +52,6 @@
         <div class="about-content">
             <div class="about-text">
                 <p>I'm a passionate DevOps Engineer with expertise in building scalable cloud infrastructure and implementing robust DevOps practices. With extensive experience in AWS, Azure, and GCP, I specialize in Kubernetes orchestration, Infrastructure as Code, and cloud migrations. I thrive on optimizing system performance, reducing costs, and ensuring high availability of critical applications.</p>
-                <div class="skills">
-                    <h3>Core Technologies</h3>
-                    <div class="skill-tags">
-                        <span>AWS</span>
-                        <span>Azure</span>
-                        <span>GCP</span>
-                        <span>Kubernetes</span>
-                        <span>Docker</span>
-                        <span>Terraform</span>
-                        <span>Ansible</span>
-                        <span>Python</span>
-                        <span>Go</span>
-                        <span>Jenkins</span>
-                        <span>Prometheus</span>
-                        <span>Grafana</span>
-                        <span>ELK Stack</span>
-                        <span>Linux</span>
-                        <span>Shell Scripting</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -80,45 +60,105 @@
         <h2 class="section-title">Experience</h2>
         <div class="timeline">
             <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>DevOps Engineer</h3>
-                    <h4>Apollo247</h4>
-                    <span class="date">12/2023 - Present</span>
-                    <p>Led end-to-end cloud migration of services from Azure to Google Cloud Platform (GCP) with zero downtime, ensuring seamless production continuity and optimized cloud utilization.</p>
-                    <p>Designed and developed a full-stack application using Go to track service releases by integrating with Jira, GCP, Jenkins, and MySQL.</p>
-                    <p>Migrated over 700 Python-based data analytics scripts from Azure to GCP, improving performance, maintainability, and consistency.</p>
-                    <p>Built GPU-enabled VMs on GCP and successfully deployed Large Language Models (LLMs) for inference and experimentation.</p>
-                    <p>Reduced overall cloud infrastructure cost by 20% by optimizing VM usage, decommissioning unused databases, and right-sizing Kubernetes resources.</p>
+                <div class="timeline-content collapsed" data-company="apollo">
+                    <div class="timeline-header">
+                        <div class="header-content">
+                            <h3>DevOps Engineer</h3>
+                            <h4>Apollo247</h4>
+                            <span class="date">12/2023 - Present</span>
+                        </div>
+                        <button class="expand-btn" aria-label="Toggle experience details">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="timeline-details">
+                        <p>Led end-to-end cloud migration from Azure to Google Cloud Platform (GCP) with zero downtime, ensuring seamless production continuity and optimized cloud utilization.</p>
+                        <p>Designed and developed a full-stack Go application for service release tracking, integrating Jira, GCP, Jenkins, and MySQL with comprehensive frontend and backend development.</p>
+                        <p>Migrated 700+ Python-based data analytics scripts from Azure to GCP, enhancing performance, maintainability, and platform consistency.</p>
+                        <p>Migrated critical production services from VM-based architecture to Kubernetes (GKE) clusters, improving scalability and reliability.</p>
+                        <p>Provisioned and managed GKE clusters end-to-end using Terraform, enabling fully automated, version-controlled infrastructure deployment.</p>
+                        <p>Developed and maintained Helm charts for multiple microservices, streamlining Kubernetes deployments and environment configurations.</p>
+                        <p>Led Apollo247Insurance project independently, covering architecture design, CI/CD pipeline setup, infrastructure provisioning, service onboarding, and monitoring implementation.</p>
+                        <p>Integrated third-party partner infrastructure using Cloud Run, Network Connectivity Center (NCC), and custom CI/CD pipelines, ensuring secure connectivity and operational continuity.</p>
+                        <p>Collaborated proactively with developers, resolving day-to-day issues and deployment blockers to maintain smooth development and delivery cycles.</p>
+                        <p>Achieved 20% reduction in cloud infrastructure costs through VM optimization, database decommissioning, Kubernetes right-sizing, and logging/network expense minimization.</p>
+                        <p>Deployed GPU-enabled VMs on GCP and successfully implemented Large Language Models (LLMs) for inference and experimentation.</p>
+                        <p>Managed production releases for Apollo247's primary web application, ensuring stability and low-risk deployment processes.</p>
+                        <p>Designed comprehensive GCP architecture using Terraform, incorporating Compute Engine, Load Balancers, API Gateways, Cloud Functions, Pub/Sub, Logging & Monitoring, Alerting, Cloud SQL (PostgreSQL), Shared VPC, VPNs, GKE, NFS, and Cloud Armor (WAF) for security hardening.</p>
+                        <p>Implemented observability and monitoring using ELK Stack, Grafana, Prometheus, and APM tools, enabling rapid incident response and trend analysis.</p>
+                    </div>
                 </div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>DevOps Engineer 1</h3>
-                    <h4>Blackbuck</h4>
-                    <span class="date">05/2022 - 12/2023</span>
-                    <p>Setting up Jenkins and created CI/CD pipelines securely. Worked on writing Ansible scripts for creating Pipeline Flow.</p>
-                    <p>Created Infra in GCP and setting up the GKE cluster, and we are using Gateway controller and made that setup for header based Routing in GKE, and enabled RBAC for everything.</p>
-                    <p>Reduced companies INFRA Cost by 10%, by migrating to containers. Migrated the applications from the standalone instances to GKE cluster.</p>
-                    <p>Set up Alerts using Prometheus via Alertmanager for all the applications and send it to slack and Email.</p>
+                <div class="timeline-content collapsed" data-company="blackbuck">
+                    <div class="timeline-header">
+                        <div class="header-content">
+                            <h3>DevOps Engineer 1</h3>
+                            <h4>Blackbuck</h4>
+                            <span class="date">05/2022 - 12/2023</span>
+                        </div>
+                        <button class="expand-btn" aria-label="Toggle experience details">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="timeline-details">
+                        <p>Established secure Jenkins CI/CD pipelines with comprehensive automation workflows.</p>
+                        <p>Developed Ansible scripts for streamlined pipeline flow creation and configuration management.</p>
+                        <p>Implemented monitoring stack across standalone machines and Kubernetes clusters for comprehensive observability.</p>
+                        <p>Built and configured GCP infrastructure with GKE clusters, implementing Gateway controller for header-based routing and enabling RBAC across all resources.</p>
+                        <p>Managed GCP operations, resolving developer issues, ensuring maximum application uptime, and implementing HPA/VPA for resource optimization.</p>
+                        <p>Automated workflows through custom shell scripts, improving operational efficiency and reducing manual interventions.</p>
+                        <p>Configured New Relic APM on Kubernetes clusters for performance metrics collection and alert management.</p>
+                        <p>Deployed ELK stack across standalone and Kubernetes environments for centralized log management and time-based analysis.</p>
+                        <p>Achieved 10% infrastructure cost reduction through strategic container migration initiatives.</p>
+                        <p>Migrated applications from standalone instances to GKE clusters while managing database transitions from legacy systems to GCP and AWS Athena.</p>
+                        <p>Innovated problem-solving approaches across processes, technologies, and team dynamics to enhance overall operational efficiency.</p>
+                        <p>Diagnosed and resolved system faults through systematic troubleshooting and root cause analysis.</p>
+                    </div>
                 </div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Site Reliability Engineer</h3>
-                    <h4>Juspay Technologies</h4>
-                    <span class="date">07/2021 - 05/2022</span>
-                    <p>Migrations related projects from on-prem to cloud and cloud to Kubernetes. Monitoring Related Projects like setting up monitoring stack in Kubernetes cluster.</p>
-                    <p>Worked with Prometheus, grafana, Victoria Metrics. Kafka operator setup, to build real-time streaming data pipelines.</p>
-                    <p>Set up Alerts using Prometheus via Alertmanager for all the applications and send it to slack and Email.</p>
+                <div class="timeline-content collapsed" data-company="juspay">
+                    <div class="timeline-header">
+                        <div class="header-content">
+                            <h3>Site Reliability Engineer</h3>
+                            <h4>Juspay Technologies</h4>
+                            <span class="date">07/2021 - 05/2022</span>
+                        </div>
+                        <button class="expand-btn" aria-label="Toggle experience details">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="timeline-details">
+                        <p>Responded to critical AWS Health Event (CREDENTIAL EXPOSE) and implemented immediate remediation measures.</p>
+                        <p>Configured Sentry error detection tool for comprehensive application monitoring, enabling platform-specific error identification and automated alerting.</p>
+                        <p>Executed migration projects from on-premises infrastructure to cloud environments and cloud-to-Kubernetes transitions.</p>
+                        <p>Implemented monitoring infrastructure in Kubernetes clusters with Prometheus metrics collection, Grafana visualization, FluentD log aggregation, and Kibana/ELK stack integration.</p>
+                        <p>Deployed Kafka operator for real-time streaming data pipelines and streaming applications, enabling reliable data processing and movement between systems.</p>
+                        <p>Configured Prometheus Alertmanager for application-wide alerting with Slack and email notifications.</p>
+                        <p>Implemented AWS Load Balancer Controller and ingress-nginx for optimized traffic management.</p>
+                        <p>Provisioned Kubernetes clusters using AWS EKS with essential utilities including kube2iam, cluster-autoscaler, Node-Local-DNS, and Iris-autoscaler.</p>
+                        <p>Established Istio service mesh with Envoy sidecar proxies in Kubernetes clusters for enhanced service communication.</p>
+                        <p>Conducted AMI hardening, rollout management, and Terraform-based AWS resource provisioning while addressing internal operational challenges.</p>
+                    </div>
                 </div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Azure Administrator</h3>
-                    <h4>CTRLS Data Center</h4>
-                    <span class="date">04/2021 - 07/2021</span>
-                    <p>Creating Virtual Machines and managing servers. Creating snapshots and OS patch activities.</p>
-                    <p>Solving operations issues with merchants. Worked on AKS (Azure Kubernetes Service).</p>
+                <div class="timeline-content collapsed" data-company="ctrls">
+                    <div class="timeline-header">
+                        <div class="header-content">
+                            <h3>Azure Administrator</h3>
+                            <h4>CTRLS Data Center</h4>
+                            <span class="date">04/2021 - 07/2021</span>
+                        </div>
+                        <button class="expand-btn" aria-label="Toggle experience details">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="timeline-details">
+                        <p>Provisioned and managed virtual machines, servers, snapshots, and OS patch management activities.</p>
+                        <p>Resolved operational issues for merchants and managed Azure Kubernetes Service (AKS) deployments.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -149,21 +189,21 @@
                             <i class="fab fa-aws"></i>
                         </div>
                         <h4>AWS</h4>
-                        <p>Expert in EC2, S3, Lambda, RDS, VPC, IAM, CloudFormation, and cost optimization strategies.</p>
+                        <p>EC2, S3, Lambda, RDS, VPC, IAM, CloudFormation</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon azure">
                             <i class="fab fa-microsoft"></i>
                         </div>
                         <h4>Azure</h4>
-                        <p>Proficient in Azure VMs, AKS, Azure Functions, Storage, and DevOps integration.</p>
+                        <p>VMs, AKS, Functions, Storage, DevOps integration</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon gcp">
                             <i class="fab fa-google"></i>
                         </div>
                         <h4>GCP</h4>
-                        <p>Advanced knowledge of GKE, Cloud Run, BigQuery, Cloud Storage, and migration strategies.</p>
+                        <p>GKE, Cloud Run, BigQuery, Cloud Storage, migrations</p>
                     </div>
                 </div>
             </div>
@@ -176,14 +216,14 @@
                             <i class="fas fa-dharmachakra"></i>
                         </div>
                         <h4>Kubernetes</h4>
-                        <p>Expert in cluster setup, Helm charts, RBAC, networking, and production deployments.</p>
+                        <p>Cluster setup, Helm charts, RBAC, networking, production deployments</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon docker">
                             <i class="fab fa-docker"></i>
                         </div>
                         <h4>Docker</h4>
-                        <p>Container creation, multi-stage builds, Docker Compose, and registry management.</p>
+                        <p>Container creation, multi-stage builds, Docker Compose</p>
                     </div>
                 </div>
             </div>
@@ -196,14 +236,21 @@
                             <i class="fas fa-code"></i>
                         </div>
                         <h4>Terraform</h4>
-                        <p>Infrastructure provisioning, modules, workspaces, and state management.</p>
+                        <p>Infrastructure provisioning, modules, workspaces, state management</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon ansible">
                             <i class="fas fa-robot"></i>
                         </div>
                         <h4>Ansible</h4>
-                        <p>Configuration management, playbooks, roles, and automated deployments.</p>
+                        <p>Configuration management, playbooks, roles, automated deployments</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon helm">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h4>Helm</h4>
+                        <p>Kubernetes package management, chart development, deployment automation</p>
                     </div>
                 </div>
             </div>
@@ -216,21 +263,74 @@
                             <i class="fab fa-python"></i>
                         </div>
                         <h4>Python</h4>
-                        <p>Automation scripts, data processing, API development, and ML model deployment.</p>
+                        <p>Automation scripts, data processing, API development, ML deployment</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon golang">
                             <i class="fas fa-code"></i>
                         </div>
                         <h4>Go</h4>
-                        <p>High-performance applications, microservices, and CLI tools development.</p>
+                        <p>High-performance applications, microservices, CLI tools development</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon shell">
                             <i class="fas fa-terminal"></i>
                         </div>
                         <h4>Shell Scripting</h4>
-                        <p>Bash scripting, automation workflows, and system administration tasks.</p>
+                        <p>Bash scripting, automation workflows, system administration</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Databases & Data</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon mysql">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>MySQL</h4>
+                        <p>Database design, query optimization, performance tuning, administration</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon postgres">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>PostgreSQL</h4>
+                        <p>Advanced SQL features, JSON handling, performance optimization, cloud deployments</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Systems & Infrastructure</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon linux">
+                            <i class="fab fa-linux"></i>
+                        </div>
+                        <h4>Linux</h4>
+                        <p>System administration, shell scripting, performance monitoring, troubleshooting</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon nginx">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h4>Nginx</h4>
+                        <p>Load balancing, reverse proxy, web server configuration, SSL/TLS management</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Streaming & Messaging</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon kafka">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h4>Apache Kafka</h4>
+                        <p>Real-time data streaming, event-driven architectures, distributed messaging</p>
                     </div>
                 </div>
             </div>
@@ -243,14 +343,14 @@
                             <i class="fas fa-cog"></i>
                         </div>
                         <h4>Jenkins</h4>
-                        <p>Pipeline creation, job configuration, and integration with version control systems.</p>
+                        <p>Pipeline creation, job configuration, version control integration</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon monitoring">
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <h4>Monitoring Stack</h4>
-                        <p>Prometheus, Grafana, ELK Stack, and APM tools for comprehensive observability.</p>
+                        <p>Prometheus, Grafana, ELK Stack, APM tools for observability</p>
                     </div>
                 </div>
             </div>
