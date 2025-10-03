@@ -112,51 +112,46 @@ if (contactForm) {
     });
 }
 
-// Add animation on scroll
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.timeline-item, .project-card, .about-content, .contact-container > div');
-    
-    elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-        
-        if (elementPosition < screenPosition) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
-    });
+// Enhanced scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
 };
 
-// Set initial styles for animation
-window.addEventListener('DOMContentLoaded', () => {
-    // Animate timeline items
-    document.querySelectorAll('.timeline-item').forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = index % 2 === 0 ? 'translateX(-50px)' : 'translateX(50px)';
-        item.style.transition = 'all 0.6s ease-out';
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+        }
     });
-    
-    // Animate project cards
-    document.querySelectorAll('.project-card').forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `all 0.5s ease-out ${index * 0.1}s`;
-    });
-    
-    // Animate about and contact sections
-    const sections = document.querySelectorAll('.about-content, .contact-container > div');
-    sections.forEach((section, index) => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = `all 0.6s ease-out ${index * 0.2}s`;
-    });
-    
-    // Initial check for elements in viewport
-    animateOnScroll();
-});
+}, observerOptions);
 
-// Check for elements in viewport on scroll
-window.addEventListener('scroll', animateOnScroll);
+// Observe elements for animation
+window.addEventListener('DOMContentLoaded', () => {
+    // Observe timeline items
+    document.querySelectorAll('.timeline-item').forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(item);
+    });
+
+    // Observe project cards with staggered animation
+    document.querySelectorAll('.project-card').forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(card);
+    });
+
+    // Observe about content
+    const aboutContent = document.querySelector('.about-content');
+    if (aboutContent) {
+        observer.observe(aboutContent);
+    }
+
+    // Observe skill tags with staggered animation
+    document.querySelectorAll('.skill-tags span').forEach((span, index) => {
+        span.style.transitionDelay = `${index * 0.05}s`;
+        observer.observe(span);
+    });
+});
 
 // Add hover effect to project cards
 document.querySelectorAll('.project-card').forEach(card => {
@@ -183,7 +178,48 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
+// Button ripple effect
+function createRipple(event) {
+    const button = event.currentTarget;
+    const circle = document.createElement('span');
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+
+    const rect = button.getBoundingClientRect();
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - rect.left - radius}px`;
+    circle.style.top = `${event.clientY - rect.top - radius}px`;
+    circle.classList.add('ripple');
+
+    const ripple = button.getElementsByClassName('ripple')[0];
+    if (ripple) {
+        ripple.remove();
+    }
+
+    button.appendChild(circle);
+
+    // Remove the ripple after animation
+    setTimeout(() => {
+        circle.remove();
+    }, 600);
+}
+
+// Add ripple effect to buttons
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', createRipple);
+});
+
+// Enhanced button interactions
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('mousedown', function(e) {
+        this.style.transform = 'scale(0.98) translateY(-1px)';
+    });
+
+    button.addEventListener('mouseup', function(e) {
+        this.style.transform = 'scale(1) translateY(-2px)';
+    });
+
+    button.addEventListener('mouseleave', function(e) {
+        this.style.transform = 'scale(1) translateY(-2px)';
+    });
 });
