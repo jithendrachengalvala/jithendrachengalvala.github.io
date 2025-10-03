@@ -951,6 +951,37 @@ nav {
 .skill-icon.kafka { background: linear-gradient(135deg, #231f20, #b31217); }
 .skill-icon.rabbitmq { background: linear-gradient(135deg, #ff6600, #ff9900); }
 
+/* Architecture Section */
+.architecture-showcase {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.architecture-category {
+    margin-bottom: 4rem;
+}
+
+.architecture-category h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.architecture-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
 /* Contact Section */
 .contact-container {
     max-width: var(--max-width);
