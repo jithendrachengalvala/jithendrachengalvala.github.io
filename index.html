@@ -10,7 +10,7 @@
     <title>Jithendra Chengalvala | Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -21,7 +21,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#projects">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="hamburger">
@@ -139,60 +139,119 @@
     </section>
 
     <section id="projects" class="section">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image"></div>
-                <h3>Cloud Migration Platform</h3>
-                <p>Full-stack application built with Go for tracking service releases. Integrated with Jira, GCP, Jenkins, and MySQL for comprehensive release management and monitoring.</p>
-                <div class="project-links">
-                    <a href="#" target="_blank"><i class="fab fa-github"></i> View Details</a>
-                    <a href="#" target="_blank"><i class="fas fa-cloud"></i> GCP</a>
+        <h2 class="section-title">Key Skills & Technologies</h2>
+        <div class="skills-showcase">
+            <div class="skill-category">
+                <h3>Cloud Platforms</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon aws">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <h4>AWS</h4>
+                        <p>Expert in EC2, S3, Lambda, RDS, VPC, IAM, CloudFormation, and cost optimization strategies.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon azure">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <h4>Azure</h4>
+                        <p>Proficient in Azure VMs, AKS, Azure Functions, Storage, and DevOps integration.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon gcp">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <h4>GCP</h4>
+                        <p>Advanced knowledge of GKE, Cloud Run, BigQuery, Cloud Storage, and migration strategies.</p>
+                    </div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-image"></div>
-                <h3>Kubernetes Infrastructure</h3>
-                <p>End-to-end Kubernetes cluster provisioning using Terraform and Helm charts. Implemented monitoring with Prometheus, Grafana, and ELK stack for production applications.</p>
-                <div class="project-links">
-                    <a href="#" target="_blank"><i class="fab fa-github"></i> Infrastructure</a>
-                    <a href="#" target="_blank"><i class="fas fa-dharmachakra"></i> K8s</a>
+
+            <div class="skill-category">
+                <h3>Containerization & Orchestration</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon kubernetes">
+                            <i class="fas fa-dharmachakra"></i>
+                        </div>
+                        <h4>Kubernetes</h4>
+                        <p>Expert in cluster setup, Helm charts, RBAC, networking, and production deployments.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon docker">
+                            <i class="fab fa-docker"></i>
+                        </div>
+                        <h4>Docker</h4>
+                        <p>Container creation, multi-stage builds, Docker Compose, and registry management.</p>
+                    </div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-image"></div>
-                <h3>CI/CD Pipeline Automation</h3>
-                <p>Automated deployment pipelines using Jenkins, Ansible, and shell scripts. Implemented secure CI/CD practices with RBAC and monitoring integration.</p>
-                <div class="project-links">
-                    <a href="#" target="_blank"><i class="fab fa-github"></i> Pipelines</a>
-                    <a href="#" target="_blank"><i class="fas fa-robot"></i> Automation</a>
+
+            <div class="skill-category">
+                <h3>Infrastructure as Code</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon terraform">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Terraform</h4>
+                        <p>Infrastructure provisioning, modules, workspaces, and state management.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon ansible">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>Ansible</h4>
+                        <p>Configuration management, playbooks, roles, and automated deployments.</p>
+                    </div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-image"></div>
-                <h3>LLM Deployment Platform</h3>
-                <p>Built GPU-enabled VMs on GCP for Large Language Model inference and experimentation. Optimized for performance and cost efficiency.</p>
-                <div class="project-links">
-                    <a href="#" target="_blank"><i class="fab fa-github"></i> ML Infra</a>
-                    <a href="#" target="_blank"><i class="fas fa-brain"></i> AI/ML</a>
+
+            <div class="skill-category">
+                <h3>Programming & Scripting</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon python">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h4>Python</h4>
+                        <p>Automation scripts, data processing, API development, and ML model deployment.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon golang">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Go</h4>
+                        <p>High-performance applications, microservices, and CLI tools development.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon shell">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <h4>Shell Scripting</h4>
+                        <p>Bash scripting, automation workflows, and system administration tasks.</p>
+                    </div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-image"></div>
-                <h3>Cost Optimization Framework</h3>
-                <p>Reduced cloud infrastructure costs by 20% through VM optimization, Kubernetes resource right-sizing, and efficient logging strategies.</p>
-                <div class="project-links">
-                    <a href="#" target="_blank"><i class="fab fa-github"></i> Cost Analysis</a>
-                    <a href="#" target="_blank"><i class="fas fa-chart-line"></i> Optimization</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image"></div>
-                <h3>Monitoring & Observability Stack</h3>
-                <p>Implemented comprehensive monitoring using ELK Stack, Grafana, Prometheus, and APM tools. Set up alerting systems for rapid incident response.</p>
-                <div class="project-links">
-                    <a href="#" target="_blank"><i class="fab fa-github"></i> Monitoring</a>
-                    <a href="#" target="_blank"><i class="fas fa-eye"></i> Observability</a>
+
+            <div class="skill-category">
+                <h3>CI/CD & DevOps Tools</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon jenkins">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h4>Jenkins</h4>
+                        <p>Pipeline creation, job configuration, and integration with version control systems.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon monitoring">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Monitoring Stack</h4>
+                        <p>Prometheus, Grafana, ELK Stack, and APM tools for comprehensive observability.</p>
+                    </div>
                 </div>
             </div>
         </div>
