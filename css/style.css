@@ -17,24 +17,85 @@
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     --transition: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
     --border-radius: 8px;
     --border-radius-lg: 12px;
     --max-width: 1200px;
 }
-
-/* Reset and Base Styles */
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--bg-secondary);
     font-size: 16px;
+}
+
+/* Ensure proper mobile viewport handling */
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    /* Prevent horizontal scroll */
+    .container,
+    .hero-container,
+    .about-container,
+    .experience-container,
+    .education-container,
+    .skills-showcase,
+    .contact-container,
+    .footer-content {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    /* Fix mobile navigation */
+    .nav-links {
+        width: 100vw;
+        left: -100vw;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* Ensure sections stack properly */
+    .section {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    /* Fix button sizing for mobile */
+    .btn {
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+
+    /* Fix form inputs for mobile */
+    .form-group input,
+    .form-group textarea {
+        min-height: 44px;
+        touch-action: manipulation;
+    }
 }
 
 .container {
@@ -822,7 +883,17 @@ footer {
     transform: translateY(-3px);
 }
 
-/* Responsive Design */
+/* Enhanced Mobile-First Responsive Design */
+
+/* Base mobile styles - only apply to mobile */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+        padding: 0 1.5rem;
+    }
+}
+
+/* Large tablets and small desktops - don't override desktop styles too much */
 @media (max-width: 1024px) {
     .hero-container {
         flex-direction: column;
@@ -834,22 +905,11 @@ footer {
         font-size: 3rem;
     }
 
+    /* Don't override desktop About section styling - keep it as is for tablets */
     .about-content {
-        gap: 2.5rem;
-        padding: 2.5rem;
-    }
-
-    .about-text {
-        text-align: left;
-    }
-
-    .about-text p {
-        text-align: left;
-        max-width: 100%;
-    }
-
-    .about-text p:first-child {
-        text-align: left;
+        gap: 3rem;
+        padding: 3rem;
+        max-width: 900px;
     }
 
     .timeline {
@@ -871,8 +931,14 @@ footer {
         left: -0.9rem;
         top: 2.7rem;
     }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
 }
 
+/* Tablets - preserve desktop styling where possible */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -882,7 +948,7 @@ footer {
         position: fixed;
         top: 70px;
         left: -100%;
-        width: 100%;
+        width: 100vw;
         height: calc(100vh - 70px);
         background: white;
         flex-direction: column;
@@ -891,6 +957,7 @@ footer {
         transition: var(--transition);
         box-shadow: var(--shadow-lg);
         z-index: 999;
+        overflow-y: auto;
     }
 
     .nav-links.active {
@@ -904,6 +971,7 @@ footer {
 
     .hero h1 {
         font-size: 2.5rem;
+        line-height: 1.2;
     }
 
     .hero h2 {
@@ -912,6 +980,7 @@ footer {
 
     .hero p {
         font-size: 1.1rem;
+        margin-bottom: 2rem;
     }
 
     .cta-buttons {
@@ -924,14 +993,39 @@ footer {
         height: 250px;
     }
 
+    /* Preserve About section desktop styling for tablets */
+    .about-content {
+        gap: 3rem;
+        padding: 3rem;
+        margin: 0;
+    }
+
+    .about-text p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    .about-text p:first-child {
+        font-size: 1.2rem;
+    }
+
+    .about-text p:first-child::first-letter {
+        font-size: 2.2rem;
+    }
+
     .skills-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 
+    .skill-card {
+        padding: 1.8rem;
+    }
+
     .timeline-item {
         padding: 2rem;
         margin-left: 1rem;
+        margin-bottom: 2rem;
     }
 
     .timeline-item::before {
@@ -944,13 +1038,71 @@ footer {
         top: 2.7rem;
     }
 
-    .about-content {
+    .timeline-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .timeline-content h4 {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .timeline-content .date {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .timeline-content p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .education-content {
+        padding: 2.2rem;
+    }
+
+    .contact-container {
+        padding: 0 1rem;
         gap: 2rem;
-        padding: 2rem;
+    }
+
+    .contact-info h3 {
+        font-size: 1.8rem;
+    }
+
+    .contact-info p {
+        font-size: 1.05rem;
+    }
+
+    .contact-form {
+        padding: 2.2rem;
+    }
+
+    .section {
+        padding: 5rem 0;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
     }
 }
 
+/* Mobile devices - more conservative mobile styling */
 @media (max-width: 480px) {
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
     .container,
     .hero-container,
     .about-container,
@@ -960,42 +1112,85 @@ footer {
     .contact-container,
     .footer-content {
         padding: 0 1rem;
+        max-width: 100%;
+        margin: 0 auto;
     }
 
     .section {
-        padding: 4rem 0;
+        padding: 3rem 0;
+    }
+
+    .hero {
+        padding: 3rem 0 2rem;
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .hero h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        line-height: 1.1;
+        margin-bottom: 1rem;
     }
 
     .hero h2 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
     }
 
     .hero p {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.4;
     }
 
     .btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
+        min-height: 44px;
     }
 
     .profile-image {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
+        margin: 1rem auto;
     }
 
     .about-content {
-        gap: 1.5rem;
-        padding: 1.5rem;
+        gap: 2rem;
+        padding: 2rem;
+        margin: 0;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.2rem;
+    }
+
+    .about-text p:first-child {
+        font-size: 1rem;
+    }
+
+    .about-text p:first-child::first-letter {
+        font-size: 1.8rem;
+    }
+
+    .skill-tags {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .skill-tags span {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
     }
 
     .timeline-item {
         padding: 1.5rem;
         margin-left: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .timeline-item::before {
@@ -1010,6 +1205,168 @@ footer {
         top: 2.2rem;
         width: 8px;
         height: 8px;
+    }
+
+    .timeline-content h3 {
+        font-size: 1rem;
+    }
+
+    .timeline-content h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .timeline-content .date {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .timeline-content p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    .skill-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .skill-card {
+        padding: 1rem;
+    }
+
+    .skill-card h4 {
+        font-size: 1rem;
+    }
+
+    .skill-card p {
+        font-size: 0.8rem;
+    }
+
+    .education-content {
+        padding: 1.5rem;
+    }
+
+    .education-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .education-content h4 {
+        font-size: 0.95rem;
+    }
+
+    .education-content .date {
+        font-size: 0.85rem;
+    }
+
+    .education-content p {
+        font-size: 0.9rem;
+    }
+
+    .contact-container {
+        gap: 1.5rem;
+    }
+
+    .contact-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .contact-info p {
+        font-size: 0.9rem;
+    }
+
+    .contact-methods a {
+        padding: 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+        min-height: 44px;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+    }
+
+    .section-title::after {
+        width: 50px;
+        height: 2px;
+    }
+
+    /* Mobile menu improvements */
+    .nav-links {
+        padding: 1.5rem;
+        width: 100vw;
+    }
+
+    .nav-links a {
+        padding: 0.8rem 1rem;
+        font-size: 1.1rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Very small mobile devices - minimal changes only */
+@media (max-width: 360px) {
+    .container,
+    .hero-container,
+    .about-container,
+    .experience-container,
+    .education-container,
+    .skills-showcase,
+    .contact-container,
+    .footer-content {
+        padding: 0 0.75rem;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .hero h2 {
+        font-size: 1rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .about-text p {
+        font-size: 0.85rem;
+    }
+
+    .about-text p:first-child::first-letter {
+        font-size: 1.5rem;
+    }
+
+    .skill-tags span {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
     }
 }
 
