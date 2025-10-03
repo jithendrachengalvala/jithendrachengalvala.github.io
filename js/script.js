@@ -147,27 +147,71 @@ if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
 }
 
-// Enhanced form submission
+// Enhanced form submission with EmailJS
 const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
+const formStatus = document.getElementById('form-status');
+
+if (contactForm && formStatus) {
+    // Initialize EmailJS (you'll need to add your credentials)
+    emailjs.init('oGobBevE7oan7tsEX'); // Replace with your EmailJS public key
+
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
         const submitButton = this.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
 
+        // Show loading state
         submitButton.disabled = true;
         submitButton.textContent = 'Sending...';
+        formStatus.textContent = 'Sending your message...';
+        formStatus.className = 'form-status loading';
+        formStatus.style.display = 'block';
 
-        setTimeout(() => {
-            this.reset();
-            submitButton.textContent = '✓ Message Sent!';
+        // Prepare email data
+        const formData = {
+            from_name: document.getElementById('name').value,
+            from_email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value,
+            to_email: 'jithendrachengalvala@gmail.com' // Your email address
+        };
 
-            setTimeout(() => {
-                submitButton.textContent = originalText;
+        // Send email using EmailJS
+        emailjs.send('service_gwk214q', 'template_97kpvvw', formData)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+
+                // Show success message
+                submitButton.textContent = '✓ Message Sent!';
+                formStatus.textContent = 'Thank you! Your message has been sent successfully. I\'ll get back to you soon.';
+                formStatus.className = 'form-status success';
+
+                // Reset form
+                contactForm.reset();
+
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                    formStatus.style.display = 'none';
+                }, 4000);
+
+            }, function(error) {
+                console.log('FAILED...', error);
+
+                // Show error message
+                submitButton.textContent = 'Try Again';
                 submitButton.disabled = false;
-            }, 3000);
-        }, 1500);
+                formStatus.textContent = 'Oops! Something went wrong. Please try again or contact me directly.';
+                formStatus.className = 'form-status error';
+
+                // Reset button after 5 seconds
+                setTimeout(() => {
+                    submitButton.textContent = originalText;
+                    formStatus.style.display = 'none';
+                }, 5000);
+            });
     });
 }
 
